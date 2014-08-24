@@ -4,15 +4,29 @@ import com.secret.app.enums.Currency;
 import com.secret.app.enums.ProductType;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
+
+import javax.persistence.*;
+import java.io.Serializable;
 
 @Setter
 @Getter
+@Entity
 @AllArgsConstructor
-public abstract class Product
+@NoArgsConstructor
+public abstract class Product implements Serializable
 {
+    private static final long serialVersionUID = 7140440194431055196L;
+
+    @EmbeddedId
     private ProductKey productKey;
+
+    @Column(name="currency", nullable = true)
+    @Enumerated(EnumType.STRING)
     private Currency currency;
+
+    @Column(name="market_id", nullable = true)
     private String marketId;
 
     public Product(String id, ProductType productType, Currency currency)
@@ -44,9 +58,17 @@ public abstract class Product
     @Getter
     @Setter
     @AllArgsConstructor
-    public static class ProductKey
+    @NoArgsConstructor
+    @Embeddable
+    public static class ProductKey implements Serializable
     {
+        private static final long serialVersionUID = 1211360949030265990L;
+
+        @Column(name="product_id", nullable = false)
         private String id;
+
+        @Column(name="product_type", nullable = false)
+        @Enumerated(EnumType.STRING)
         private ProductType productType;
 
 
