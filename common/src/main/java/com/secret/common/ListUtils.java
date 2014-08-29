@@ -3,7 +3,7 @@ package com.secret.common;
 import java.util.ArrayList;
 import java.util.List;
 
-class ListImp {
+class ListUtils {
   public static <T> List<List<T>> sliding(List<T> list, Integer size) {
     return sliding(list, size, 1);
   }
