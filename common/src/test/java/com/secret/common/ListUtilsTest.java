@@ -36,4 +36,17 @@ public class ListUtilsTest extends TestCase {
     assertEquals(ListUtils.sliding(list, 2, 0), new ArrayList());
     assertEquals(ListUtils.sliding(list, 2, -1), new ArrayList());
   }
+  
+  public void testMkString() {
+    List<Integer> list = Arrays.asList(1, 2, 3, 4, 5);
+    
+    assertEquals(ListUtils.mkString(Arrays.asList()), "");
+    assertEquals(ListUtils.mkString(Arrays.asList(), " "), "");
+    assertEquals(ListUtils.mkString(Arrays.asList(), "start", " ", "end"), "startend");
+    
+    assertEquals(ListUtils.mkString(list), "12345");
+    assertEquals(ListUtils.mkString(list, " "), "1 2 3 4 5");
+    assertEquals(ListUtils.mkString(list, " , "), "1 , 2 , 3 , 4 , 5");
+    assertEquals(ListUtils.mkString(list, "start", " ", "end"), "start1 2 3 4 5end");
+  }
 }
