@@ -2,6 +2,7 @@ package com.secret.app.portfolios;
 
 import com.secret.app.positions.Position;
 import com.secret.app.users.User;
+import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -10,6 +11,7 @@ import java.util.List;
 @Getter
 @Setter
 @NoArgsConstructor
+@AllArgsConstructor
 public class Portfolio {
     private User owner;
     private String name;
