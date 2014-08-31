@@ -5,8 +5,8 @@ import java.util.List;
 import com.secret.model.providers.MarketDataResponse;
 
 abstract public class Provider {
-  private Fetcher fetcher;
-  private Parser parser;
+  final private Fetcher fetcher;
+  final private Parser parser;
 
   protected Provider(Fetcher fetcher, Parser parser) {
     this.fetcher = fetcher;
