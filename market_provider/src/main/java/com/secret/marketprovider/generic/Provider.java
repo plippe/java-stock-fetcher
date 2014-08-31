@@ -19,7 +19,7 @@ abstract public class Provider {
     return fetcher.getMaxSymbolsPerRequest();
   }
   
-  public List<MarketDataResponse> getSymbols(List<String> symbols) {
+  public List<MarketDataResponse> get(List<String> symbols) {
     List<MarketDataResponse> result = new ArrayList();
     
     Integer maxSymbolsPerRequest = getMaxSymbolsPerRequest();
