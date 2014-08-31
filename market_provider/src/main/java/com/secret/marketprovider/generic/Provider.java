@@ -13,7 +13,7 @@ abstract public class Provider {
     this.parser = parser;
   }
 
-  private Integer getMaxSymbolsPerRequest() {
+  public Integer getMaxSymbolsPerRequest() {
     return fetcher.getMaxSymbolsPerRequest();
   }
   
