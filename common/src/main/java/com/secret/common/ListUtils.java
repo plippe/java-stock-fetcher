@@ -2,7 +2,6 @@ package com.secret.common;
 
 import java.util.ArrayList;
 import java.util.List;
-import org.apache.commons.lang3.StringUtils;
 
 public class ListUtils {
   public static <T> List<List<T>> sliding(List<T> list, Integer size) {
@@ -27,15 +26,5 @@ public class ListUtils {
     }
     
     return result;
-  }
-  
-  public static <T> String mkString(List<T> list) { return mkString(list, "", "", ""); }
-  
-  public static <T> String mkString(List<T> list, String separator) { 
-    return mkString(list, "", separator, "");
-  }
-  
-  public static <T> String mkString(List<T> list, String start, String separator, String end) {
-    return start + StringUtils.join(list, separator) + end;
   }
 }
