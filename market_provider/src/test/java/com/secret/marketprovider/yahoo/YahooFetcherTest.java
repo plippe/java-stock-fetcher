@@ -41,7 +41,7 @@ public class YahooFetcherTest extends TestCase {
     try {
       List<String> list = Arrays.asList("a", "b", "c", "d", "e");
       String fetch = fetcher.fetch(list);
-      assertEquals("Fetch 5 items should return 5 items", StringUtils.countMatches(fetch, "\n") + 1, list.size());
+      assertEquals("Fetch 5 items should return 5 items", StringUtils.countMatches(fetch, "\n") + 1, 5);
     } catch(Exception e) {
       fail("Should not raised errors in normal conditions");
     }

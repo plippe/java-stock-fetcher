@@ -4,6 +4,7 @@ import java.util.List;
 import java.util.ArrayList;
 
 import com.secret.common.ListUtils;
+import com.secret.app.providers.MarketDataResponse;
 
 abstract public class Provider {
   private Fetcher fetcher;
@@ -18,8 +19,8 @@ abstract public class Provider {
     return fetcher.getMaxSymbolsPerRequest();
   }
   
-  public List<String> getSymbols(List<String> symbols) {
-    List<String> result = new ArrayList();
+  public List<MarketDataResponse> getSymbols(List<String> symbols) {
+    List<MarketDataResponse> result = new ArrayList();
     
     Integer maxSymbolsPerRequest = getMaxSymbolsPerRequest();
     List<List<String>> symbolsDividedForRequests = ListUtils.sliding(
@@ -30,9 +31,9 @@ abstract public class Provider {
     for(List<String> symbolsForOneRequest : symbolsDividedForRequests){
       try {
         String originalContent = fetcher.fetch(symbols);
-        String convertedContent = parser.parse(originalContent);
+        List<MarketDataResponse> convertedContent = parser.parse(originalContent);
       
-        result.add(convertedContent);
+        result.addAll(convertedContent);
       } catch(Exception e) {
         System.err.println("Exeption thrown: " + e.getMessage());
       }
