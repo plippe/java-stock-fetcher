@@ -1,4 +1,4 @@
-package com.secret.app.ranking;
+package com.secret.model.ranking;
 
 import lombok.Getter;
 import lombok.NoArgsConstructor;

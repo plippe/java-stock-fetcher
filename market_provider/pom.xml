@@ -40,9 +40,8 @@
     </dependency>
     
     <dependency>
-      <!-- Model - need to change -->
-      <groupId>com.secret.app</groupId>
-      <artifactId>empty</artifactId>
+      <groupId>com.secret</groupId>
+      <artifactId>model</artifactId>
       <version>1.0-SNAPSHOT</version>
     </dependency>
     

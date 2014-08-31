@@ -2,7 +2,7 @@ package com.secret.marketprovider.generic;
 
 import java.util.List;
 
-import com.secret.app.providers.MarketDataResponse;
+import com.secret.model.providers.MarketDataResponse;
 
 abstract public class Provider {
   private Fetcher fetcher;

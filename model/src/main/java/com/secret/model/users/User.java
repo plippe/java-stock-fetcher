@@ -1,7 +1,7 @@
-package com.secret.app.users;
+package com.secret.model.users;
 
-import com.secret.app.portfolios.Portfolio;
-import com.secret.app.ranking.Rank;
+import com.secret.model.portfolios.Portfolio;
+import com.secret.model.ranking.Rank;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;

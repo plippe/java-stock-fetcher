@@ -1,7 +1,7 @@
-package com.secret.app.portfolios;
+package com.secret.model.portfolios;
 
-import com.secret.app.positions.Position;
-import com.secret.app.users.User;
+import com.secret.model.positions.Position;
+import com.secret.model.users.User;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import java.util.List;

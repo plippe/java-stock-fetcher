@@ -1,4 +1,4 @@
-package com.secret.app.providers;
+package com.secret.model.providers;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;

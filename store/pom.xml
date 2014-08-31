@@ -39,7 +39,7 @@
   
   <dependencies>
     <dependency>
-        <groupId>com.secret.app</groupId>
+        <groupId>com.secret</groupId>
         <artifactId>model</artifactId>
         <version>1.0-SNAPSHOT</version>
     </dependency>

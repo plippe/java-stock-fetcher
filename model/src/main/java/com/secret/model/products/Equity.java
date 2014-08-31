@@ -1,7 +1,7 @@
-package com.secret.app.products;
+package com.secret.model.products;
 
-import com.secret.app.enums.Currency;
-import com.secret.app.enums.ProductType;
+import com.secret.model.enums.Currency;
+import com.secret.model.enums.ProductType;
 import lombok.Getter;
 import javax.persistence.Column;
 import javax.persistence.Entity;

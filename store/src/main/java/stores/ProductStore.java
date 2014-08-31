@@ -1,8 +1,8 @@
 package stores;
 
-import com.secret.app.enums.ProductType;
-import com.secret.app.products.Product;
-import static com.secret.app.products.Product.ProductKey;
+import com.secret.model.enums.ProductType;
+import com.secret.model.products.Product;
+import static com.secret.model.products.Product.ProductKey;
 
 public interface ProductStore
 {

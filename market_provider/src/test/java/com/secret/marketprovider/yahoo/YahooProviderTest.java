@@ -6,7 +6,7 @@ import junit.framework.Test;
 import junit.framework.TestCase;
 import junit.framework.TestSuite;
 
-import com.secret.app.providers.MarketDataResponse;
+import com.secret.model.providers.MarketDataResponse;
 
 public class YahooProviderTest extends TestCase {
   public YahooProviderTest( String testName ) { super( testName ); }

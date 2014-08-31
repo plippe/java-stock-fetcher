@@ -6,7 +6,7 @@ import junit.framework.TestCase;
 import junit.framework.TestSuite;
 
 import com.secret.marketprovider.exceptions.InvalidResponseException;
-import com.secret.app.providers.MarketDataResponse;
+import com.secret.model.providers.MarketDataResponse;
 
 public class YahooParserTest extends TestCase {
   public YahooParserTest( String testName ) { super( testName ); }

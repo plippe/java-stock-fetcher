@@ -1,6 +1,6 @@
-package com.secret.app.positions;
+package com.secret.model.positions;
 
-import com.secret.app.products.Product;
+import com.secret.model.products.Product;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 

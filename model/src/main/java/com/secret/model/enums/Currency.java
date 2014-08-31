@@ -1,4 +1,4 @@
-package com.secret.app.enums;
+package com.secret.model.enums;
 
 public enum Currency {
     EUR,

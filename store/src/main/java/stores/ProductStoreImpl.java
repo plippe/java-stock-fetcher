@@ -1,13 +1,13 @@
 package stores;
 
-import static com.secret.app.products.Product.ProductKey;
+import static com.secret.model.products.Product.ProductKey;
 
 import com.google.common.base.Preconditions;
 import com.google.common.cache.CacheBuilder;
 import com.google.common.cache.CacheLoader;
 import com.google.common.cache.LoadingCache;
-import com.secret.app.enums.ProductType;
-import com.secret.app.products.Product;
+import com.secret.model.enums.ProductType;
+import com.secret.model.products.Product;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import javax.annotation.PostConstruct;
