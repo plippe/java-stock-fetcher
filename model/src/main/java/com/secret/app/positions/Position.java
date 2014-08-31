@@ -1,18 +1,14 @@
 package com.secret.app.positions;
 
 import com.secret.app.products.Product;
+import lombok.AllArgsConstructor;
 import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
-
-import javax.persistence.Entity;
 
 @Getter
-@Setter
-@NoArgsConstructor
+@AllArgsConstructor
 public class Position {
-    private String portfolioId;
-    private Product product;
-    private Double quantity;
-    private Double costPrice;
+    private final String portfolioId;
+    private final Product product;
+    private final Double quantity;
+    private final Double costPrice;
 }

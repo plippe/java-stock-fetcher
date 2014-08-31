@@ -1,12 +1,12 @@
 package com.secret.app.products;
 
+import lombok.AllArgsConstructor;
 import lombok.Getter;
-import lombok.Setter;
 
 @Getter
-@Setter
+@AllArgsConstructor
 public class ProductComponent
 {
-    private Product component;
-    private double ponderation;
+    private final Product component;
+    private final double ponderation;
 }

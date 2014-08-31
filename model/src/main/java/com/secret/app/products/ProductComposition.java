@@ -1,18 +1,15 @@
 package com.secret.app.products;
 
+import lombok.AllArgsConstructor;
 import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
-
 import java.util.Date;
 import java.util.List;
 
 @Getter
-@Setter
-@NoArgsConstructor
+@AllArgsConstructor
 public class ProductComposition {
 
-    private Product product;
-    private Date valueDate;
-    private List<ProductComponent> components;
+    private final Product product;
+    private final Date valueDate;
+    private final List<ProductComponent> components;
 }
