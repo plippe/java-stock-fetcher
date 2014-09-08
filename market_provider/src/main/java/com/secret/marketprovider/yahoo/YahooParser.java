@@ -10,8 +10,8 @@ import org.apache.commons.csv.CSVParser;
 import org.apache.commons.csv.CSVFormat;
 import org.apache.commons.csv.CSVRecord;
 
+import com.secret.model.providers.MarketDataResponse;
 import com.secret.marketprovider.generic.Parser;
-import com.secret.app.providers.MarketDataResponse;
 import com.secret.marketprovider.exceptions.InvalidResponseException;
 
 class YahooParser extends Parser {

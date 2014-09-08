@@ -2,18 +2,18 @@ package com.secret.marketprovider.generic;
 
 import java.util.List;
 
-import com.secret.app.providers.MarketDataResponse;
+import com.secret.model.providers.MarketDataResponse;
 
 abstract public class Provider {
-  private Fetcher fetcher;
-  private Parser parser;
+  final private Fetcher fetcher;
+  final private Parser parser;
 
   protected Provider(Fetcher fetcher, Parser parser) {
     this.fetcher = fetcher;
     this.parser = parser;
   }
 
-  private Integer getMaxSymbolsPerRequest() {
+  public Integer getMaxSymbolsPerRequest() {
     return fetcher.getMaxSymbolsPerRequest();
   }
   
