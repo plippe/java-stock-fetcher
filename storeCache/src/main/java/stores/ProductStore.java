@@ -1,6 +1,7 @@
 package stores;
 
-import com.secret.app.products.Product;
+
+import com.secret.model.products.Product;
 
 public interface ProductStore
 {

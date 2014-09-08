@@ -3,12 +3,7 @@ package com.secret.app;
 import akka.actor.ActorRef;
 import akka.actor.ActorSystem;
 import akka.actor.Props;
-
 import com.secret.app.Message.*;
-import com.secret.app.products.Product;
-
-import java.util.ArrayList;
-import java.util.List;
 
 public class App {
     public static void main( String[] args ) {
