@@ -11,7 +11,7 @@ public class Main {
   public static void main(String[] args) {      
     final Config conf = ConfigFactory.load();
     final String systemName = conf.getString("my-akka.system.name"); 
-    final String actorName = conf.getString("my-akka.actor.name"); 
+    final String actorName = conf.getString("my-akka.actors.server.name"); 
     
     final ActorSystem system = ActorSystem.create(systemName);
     system.actorOf(Props.create(Server.class).withRouter(new FromConfig()), actorName);
