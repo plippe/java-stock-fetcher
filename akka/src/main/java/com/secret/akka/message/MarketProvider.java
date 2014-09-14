@@ -1,4 +1,4 @@
-package com.secret.akka;
+package com.secret.akka.message;
 
 import java.io.Serializable;
 import java.util.List;

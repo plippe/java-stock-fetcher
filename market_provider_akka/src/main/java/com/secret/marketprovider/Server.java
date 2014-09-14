@@ -6,7 +6,7 @@ import akka.actor.UntypedActor;
 import akka.event.Logging;
 import akka.event.LoggingAdapter;
 
-import com.secret.akka.MarketProvider;
+import com.secret.akka.message.MarketProvider;
 import com.secret.common.ListUtils;
 import com.secret.marketprovider.generic.Provider;
 import com.secret.marketprovider.yahoo.YahooProvider;
@@ -48,7 +48,7 @@ public class Server extends UntypedActor {
 
   public void onReceive(Object message) {    
     switch (message.getClass().getName()) {
-      case "com.secret.akka.MarketProvider$Request":
+      case "com.secret.akka.message.MarketProvider$Request":
         onRequest((MarketProvider.Request) message, getSender());
         break;
       default:

@@ -1,12 +1,13 @@
 package com.secret.model.providers;
 
+import java.io.Serializable;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import java.util.Date;
 
 @Getter
 @AllArgsConstructor
-public class MarketDataResponse {
+public class MarketDataResponse implements Serializable {
     private final String id; //Symbol	Symbol	s0
     private final Date valueDate; //Ou utiliser joda time (1.8)
     private final Double last; //LastTradePriceOnly	Last Trade Price Only	l1
