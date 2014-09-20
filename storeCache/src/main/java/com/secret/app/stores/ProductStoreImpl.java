@@ -1,4 +1,4 @@
-package stores;
+package com.secret.app.stores;
 
 import com.google.common.base.Preconditions;
 import com.google.common.cache.CacheBuilder;
@@ -30,8 +30,7 @@ public class ProductStoreImpl implements ProductStore
     }
 
     private Product innerGetProduct(String key) {
-        //Get en base
-        //Envoie akka
+        //todo: get product in db
         return null;
     }
 
@@ -58,5 +57,6 @@ public class ProductStoreImpl implements ProductStore
         Preconditions.checkNotNull(product.getId(), "Param Id must not be null");
 
         this.productCache.put(product.getId(), product);
+        //todo: async save en base
     }
 }

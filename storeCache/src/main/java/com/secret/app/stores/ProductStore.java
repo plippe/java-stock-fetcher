@@ -1,4 +1,4 @@
-package stores;
+package com.secret.app.stores;
 
 
 import com.secret.model.products.Product;
