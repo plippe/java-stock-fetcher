@@ -1,43 +1,25 @@
 package com.secret.app;
 
 import akka.actor.ActorRef;
-import akka.actor.UntypedActor;
 import akka.actor.Props;
-import scala.concurrent.duration.Duration;
-import scala.concurrent.duration.FiniteDuration;
-import java.util.concurrent.TimeUnit;
-
-import com.secret.app.Message.*;
+import akka.actor.UntypedActor;
+import com.secret.akka.message.Store;
+import com.secret.app.Message.Response;
+import com.secret.model.enums.Currency;
+import com.secret.model.enums.ProductType;
+import com.secret.model.products.Product;
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.support.FileSystemXmlApplicationContext;
 
 public class Server extends UntypedActor {
   private void onStart() {
-    System.out.println("Server starting"); 
-    
-    final ActorRef client = getContext().actorOf(Props.create(Client.class));
+    System.out.println("Server starting");
 
-    System.out.println("App sending 3 Ping");
-    for(int i = 0; i < 3; i++) {
-      client.tell(new Ping(), ActorRef.noSender());
-    }
-    
-    System.out.println("App sending 3 PingFrom");
-    client.tell(new PingFrom("A"), ActorRef.noSender());
-    client.tell(new PingFrom("B"), ActorRef.noSender());
-    client.tell(new PingFrom("C"), ActorRef.noSender());
-    
-    System.out.println("App schedule a Ping every second");
-    FiniteDuration first = Duration.Zero();
-    FiniteDuration interval = Duration.create(1, TimeUnit.SECONDS);
-    getContext().system().scheduler().schedule(first, interval, client, new Ping(), getContext().dispatcher(), null);
-        
-    System.out.println("App asking to client");
-    client.tell(new Question("A"), getSelf());
-    client.tell(new Question("B"), getSelf());
-    client.tell(new Question("C"), getSelf());
-    
-    System.out.println("App schedule shudown in 10 seconds");
-    getContext().system().scheduler().scheduleOnce(
-      Duration.create(10, TimeUnit.SECONDS), getSelf(), new Stop(), getContext().dispatcher(), null);
+      final ActorRef client = getContext().actorOf(Props.create(DBProductStoreActor.class));
+      //Product productToSave = new Equity("IDtest", ProductType.EQUITY, Currency.EUR,"marketIdTest","NameTest");
+
+      Product productToSave = new Product("IDtest", ProductType.EQUITY, Currency.EUR,"marketIdTest");
+      client.tell(new Store.SaveProductInDB(productToSave), ActorRef.noSender());
   }
 
   private void onStop() {
