@@ -1,10 +1,11 @@
-package com.secret.app;
+package com.secret.app.exemple;
 
 import akka.actor.ActorRef;
 import akka.actor.Props;
 import akka.actor.UntypedActor;
 import com.secret.akka.message.Store;
-import com.secret.app.Message.Response;
+import com.secret.app.DBProductStoreActor;
+import com.secret.app.exemple.Message.Response;
 import com.secret.model.enums.Currency;
 import com.secret.model.enums.ProductType;
 import com.secret.model.products.Product;
@@ -33,13 +34,13 @@ public class Server extends UntypedActor {
 
   public void onReceive(Object message) {
     switch (message.getClass().getName()) {
-      case "com.secret.app.Message$Start":
+      case "com.secret.app.exemple.Message$Start":
         onStart();
         break;
-      case "com.secret.app.Message$Stop":
+      case "com.secret.app.exemple.Message$Stop":
         onStop();
         break;
-      case "com.secret.app.Message$Response":
+      case "com.secret.app.exemple.Message$Response":
         onResponse((Response) message);
         break;
       default:

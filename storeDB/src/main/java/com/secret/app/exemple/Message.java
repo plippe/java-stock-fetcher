@@ -1,4 +1,4 @@
-package com.secret.app;
+package com.secret.app.exemple;
 
 import java.io.Serializable;
 

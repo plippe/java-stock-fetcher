@@ -32,7 +32,7 @@ public class JDBCConnector
 
         try
         {
-            conn = DriverManager.getConnection("jdbc:postgresql://"+ host + ":"+ port +"" + database +"?user="+user +"&password="+password+ "&ssl=true&sslfactory=org.postgresql.ssl.NonValidatingFactory");
+            conn = DriverManager.getConnection("jdbc:postgresql://"+ host + ":"+ port +"" + database +"?user="+user +"&password=" + password + "&ssl=true&sslfactory=org.postgresql.ssl.NonValidatingFactory");
         }
         catch (Exception e)
         {
