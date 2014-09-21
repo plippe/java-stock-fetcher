@@ -1,7 +1,9 @@
-package com.secret.app.stores;
+package com.secret.app.stores.actors;
 
 import akka.actor.ActorRef;
 import akka.actor.UntypedActor;
+import com.secret.app.stores.ProductStore;
+import com.secret.app.stores.ProductStoreImpl;
 import com.secret.model.products.Product;
 import javax.annotation.PostConstruct;
 import static com.secret.akka.message.Store.GetProduct;
