@@ -10,25 +10,14 @@ import javax.persistence.*;
 import java.io.Serializable;
 
 @Getter
-@Entity
-@Table(name = "T_PRODUCT")
 @AllArgsConstructor
-public abstract class Product implements Serializable
+public class Product implements Serializable
 {
     private static final long serialVersionUID = 7140440194431055196L;
 
-    @Id
-    @Column(name="product_id", nullable = false)
-    private final String id;
-
-    @Column(name="product_type", nullable = false)
-    @Enumerated(EnumType.STRING)
+    private final String code;
+    private final String name;
     private final ProductType productType;
-
-    @Column(name="currency", nullable = true)
-    @Enumerated(EnumType.STRING)
     private final Currency currency;
-
-    @Column(name="market_id", nullable = true)
     private final String marketId;
 }
