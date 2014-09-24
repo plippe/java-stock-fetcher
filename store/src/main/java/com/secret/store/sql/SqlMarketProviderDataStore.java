@@ -16,7 +16,7 @@ public class SqlMarketProviderDataStore extends MarketProviderDataStore {
   }
 
   public MarketProviderData rowToModel(ResultSet row) throws SQLException {
-    final Integer id = row.getInt("id");
+    final Long id = row.getLong("id");
     final String symbol = row.getString("symbol");
     final Double value = row.getDouble("value");
     final Date time = row.getDate("time");
@@ -40,14 +40,14 @@ public class SqlMarketProviderDataStore extends MarketProviderDataStore {
     return result;
   }
 
-  public Optional<MarketProviderData> findById(Integer id) throws Exception {
+  public Optional<MarketProviderData> findById(Long id) throws Exception {
     String query = "" +
       "SELECT id, symbol, value, time " +
       "FROM marketproviderdata " +
       "WHERE id = ?";
 
     PreparedStatement ps = conn.prepareStatement(query);
-    ps.setInt(1, id);
+    ps.setLong(1, id);
 
     ResultSet rs = ps.executeQuery();
     Optional<MarketProviderData> result = Optional.empty();
@@ -82,7 +82,7 @@ public class SqlMarketProviderDataStore extends MarketProviderDataStore {
     ps.setString(1, value.getSymbol());
     ps.setDouble(2, value.getValue());
     ps.setDate(3, DateUtils.toSql(value.getTime()));
-    ps.setInt(4, value.getId().get());
+    ps.setLong(4, value.getId().get());
 
     return ps;
   }

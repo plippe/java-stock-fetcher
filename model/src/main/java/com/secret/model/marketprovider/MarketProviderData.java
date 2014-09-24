@@ -5,12 +5,12 @@ import java.util.Date;
 import java.util.Optional;
 
 public class MarketProviderData implements Serializable {
-  private final Optional<Integer> id;  
+  private final Optional<Long> id;  
   private final String symbol; 
   private final Double value;
   private final Date time;
   
-  public MarketProviderData(Integer id, String symbol, Double value, Date time) {
+  public MarketProviderData(Long id, String symbol, Double value, Date time) {
     this.id = Optional.of(id);
     this.symbol = symbol;
     this.value = value;
@@ -24,7 +24,7 @@ public class MarketProviderData implements Serializable {
     this.time = time;
   }
   
-  public Optional<Integer> getId() { return id; }
+  public Optional<Long> getId() { return id; }
   public String getSymbol() { return symbol; }
   public Double getValue() { return value; }
   public Date getTime() { return time; }
