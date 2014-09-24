@@ -22,7 +22,7 @@ class YahooFetcher extends Fetcher {
 	  if(size > getMaxSymbolsPerRequest()) { throw new RequestSizeException("Request has too many symbols"); }
 	  
 	  String hostAndPath = "http://download.finance.yahoo.com/d/quotes.csv";
-    String defaultQueryString = "?f=s0l1c6k2";
+    String defaultQueryString = "?f=s0l1";
     String queryString = "&s=" + StringUtils.join(symbols, ",");
     URL url = new URL(hostAndPath + defaultQueryString + queryString);
     InputStream in = url.openStream();

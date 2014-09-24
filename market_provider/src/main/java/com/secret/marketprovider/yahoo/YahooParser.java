@@ -10,7 +10,7 @@ import org.apache.commons.csv.CSVParser;
 import org.apache.commons.csv.CSVFormat;
 import org.apache.commons.csv.CSVRecord;
 
-import com.secret.model.providers.MarketDataResponse;
+import com.secret.model.marketprovider.MarketProviderData;
 import com.secret.marketprovider.generic.Parser;
 import com.secret.marketprovider.exceptions.InvalidResponseException;
 
@@ -27,22 +27,22 @@ class YahooParser extends Parser {
     }
   }
 
-  public List<MarketDataResponse> parse(String content) throws Exception {
+  public List<MarketProviderData> parse(String content) throws Exception {
     if(content == "") { throw new InvalidResponseException("Content is empty"); }
     
     CSVFormat format = CSVFormat.DEFAULT;
     CSVParser parser = CSVParser.parse(content, format);
     List<CSVRecord> list = parser.getRecords();
     
-    List<MarketDataResponse> result = new ArrayList();
+    List<MarketProviderData> result = new ArrayList();
+    
+    Date time = new Date();
     for(CSVRecord el: list) {      
       try { 
-        String id = el.get(0);
+        String symbol = el.get(0);
         Double value = Double.parseDouble(el.get(1));
-        Double change = Double.parseDouble(el.get(2));
-        Double changePercent = extractPercent(el.get(3));
 
-        result.add(new MarketDataResponse(id, new Date(), value, change, changePercent));
+        result.add(new MarketProviderData(symbol, value, time));
       } catch(NumberFormatException e) { continue; }
     }
     
