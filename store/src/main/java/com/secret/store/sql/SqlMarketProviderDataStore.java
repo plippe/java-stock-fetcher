@@ -18,8 +18,8 @@ public class SqlMarketProviderDataStore extends MarketProviderDataStore {
   public MarketProviderData rowToModel(ResultSet row) throws SQLException {
     final Integer id = row.getInt("id");
     final String symbol = row.getString("symbol");
-    final Double value = row.getDouble("change");
-    final Date time = row.getDate("date");
+    final Double value = row.getDouble("value");
+    final Date time = row.getDate("time");
     
     return new MarketProviderData(id, symbol, value, time);
   }
@@ -88,7 +88,7 @@ public class SqlMarketProviderDataStore extends MarketProviderDataStore {
   }
 
   public void save(MarketProviderData value) throws Exception {
-    PreparedStatement ps = value.getId().isPresent() ? insert(value) : update(value);
-    ps.executeUpdate();
+    PreparedStatement ps = value.getId().isPresent() ? update(value) : insert(value);
+    ps.execute();
   }
 }
