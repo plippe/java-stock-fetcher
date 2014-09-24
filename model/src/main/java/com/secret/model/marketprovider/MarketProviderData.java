@@ -1,4 +1,4 @@
-package com.secret.model.providers;
+package com.secret.model.marketprovider;
 
 import java.io.Serializable;
 import java.util.Date;
