@@ -10,7 +10,7 @@ import com.secret.akka.message.MarketProvider;
 import com.secret.common.ListUtils;
 import com.secret.marketprovider.generic.Provider;
 import com.secret.marketprovider.yahoo.YahooProvider;
-import com.secret.model.providers.MarketDataResponse;
+import com.secret.model.marketprovider.MarketProviderData;
 
 public class Server extends UntypedActor {
   final LoggingAdapter log = Logging.getLogger(getContext().system(), this);
@@ -18,7 +18,7 @@ public class Server extends UntypedActor {
 
   private void onNormalRequest(MarketProvider.Request request, ActorRef sender) {    
     try {
-      List<MarketDataResponse> content = provider.get(request.list);
+      List<MarketProviderData> content = provider.get(request.list);
       MarketProvider.Response response = new MarketProvider.Response(content);
       
       sender.tell(response, ActorRef.noSender());
