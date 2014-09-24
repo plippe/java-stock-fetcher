@@ -3,7 +3,7 @@ package com.secret.akka.message;
 import java.io.Serializable;
 import java.util.List;
 
-import com.secret.model.providers.MarketDataResponse;
+import com.secret.model.marketprovider.MarketProviderData;
 
 public class MarketProvider {
   public static class Request implements Serializable {
@@ -14,8 +14,8 @@ public class MarketProvider {
   }
   
   public static class Response implements Serializable {
-    public final List<MarketDataResponse> list;
-    public Response(List<MarketDataResponse> list) {
+    public final List<MarketProviderData> list;
+    public Response(List<MarketProviderData> list) {
         this.list = list;
     }
   }
