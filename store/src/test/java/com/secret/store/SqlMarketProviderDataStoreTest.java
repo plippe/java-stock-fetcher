@@ -1,6 +1,7 @@
 package com.secret.store.sql;
 
 import java.sql.*;
+import java.util.Optional;
 
 import junit.framework.Test;
 import junit.framework.TestCase;
@@ -15,6 +16,28 @@ public class SqlMarketProviderDataStoreTest extends TestCase {
 
   Connection conn = JdbcConnection.get();
 
+  void insertDummyRow(Integer id, String symbol, Double value, Date time) {    
+    try {
+      String query = "INSERT INTO marketproviderdata (id, symbol, value, time) VALUES (?, ?, ?, ?)";
+      PreparedStatement ps = conn.prepareStatement(query);
+      ps.setLong(1, id);
+      ps.setString(2, symbol);
+      ps.setDouble(3, value);
+      ps.setDate(4, time);
+      ps.execute();
+    } catch(Exception e) { 
+      System.out.println(e.getMessage());
+    }
+  }
+
+  void insertDummy() {
+    insertDummyRow(1, "a", 1.0, new Date(1));
+    insertDummyRow(2, "b", 2.0, new Date(2));
+    insertDummyRow(3, "c", 3.0, new Date(3));   
+    insertDummyRow(4, "d", 4.0, new Date(4)); 
+    insertDummyRow(5, "e", 5.0, new Date(5));  
+  }
+
   public void setUp() {
     try {
       String query = "DELETE FROM marketproviderdata";
@@ -24,14 +47,24 @@ public class SqlMarketProviderDataStoreTest extends TestCase {
   }
 
   public void testAll() {
-    // INSERT TWO
-    // all should return two
+    try {  
+      insertDummy();
+
+      SqlMarketProviderDataStore store = new SqlMarketProviderDataStore(conn);
+      assertEquals(store.all().size(), 5);
+    } catch(Exception e) { fail("Should not raised errors in normal conditions"); }
   }
 
   public void testFindById() {
-    // INSERT TWO
-    // find one should be equal
-    // find one that doesn exist should be empty
+    try {
+      insertDummy();
+      
+      SqlMarketProviderDataStore store = new SqlMarketProviderDataStore(conn);
+      Optional<MarketProviderData> value = store.findById(3L);
+
+      assertTrue(value.isPresent());
+      assertEquals(value.get().getSymbol(), "c");
+    } catch(Exception e) { fail("Should not raised errors in normal conditions"); }
   }
 
   public void testInsert() {
@@ -41,17 +74,21 @@ public class SqlMarketProviderDataStoreTest extends TestCase {
       store.save(value);
 
       assertEquals(store.all().size(), 1);
-    } catch(Exception e) {
-      System.out.println(e.getMessage());
-      fail("Should not raised errors in normal conditions");    
-    }
+    } catch(Exception e) { fail("Should not raised errors in normal conditions"); }
   }
 
   public void testUpdate() {
-    // INSERT TWO
-    // Update one
-    // find all
-    // updated should be updated
-    // other unchanged
+    try {
+      insertDummy();
+      
+      SqlMarketProviderDataStore store = new SqlMarketProviderDataStore(conn);
+      store.save(new MarketProviderData(3L, "c (updated)", 3.0, new Date(3)));
+
+      assertEquals(store.all().size(), 5);
+
+      Optional<MarketProviderData> value = store.findById(3L);      
+      assertTrue(value.isPresent());
+      assertEquals(value.get().getSymbol(), "c (updated)");
+    } catch(Exception e) { fail("Should not raised errors in normal conditions"); }
   }
 }

@@ -61,7 +61,7 @@ public class SqlMarketProviderDataStore extends MarketProviderDataStore {
 
   public PreparedStatement insert(MarketProviderData value) throws SQLException {
     String query = "" +
-      "INSERT INTO marketproviderdata(symbol, value, time) " +
+      "INSERT INTO marketproviderdata (symbol, value, time) " +
       "VALUES (?, ?, ?);";
 
     PreparedStatement ps = conn.prepareStatement(query);
