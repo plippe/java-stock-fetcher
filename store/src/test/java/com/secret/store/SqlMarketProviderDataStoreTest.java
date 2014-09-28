@@ -2,19 +2,22 @@ package com.secret.store.sql;
 
 import java.sql.*;
 import java.util.Optional;
+import com.typesafe.config.Config;
+import com.typesafe.config.ConfigFactory;
 
 import junit.framework.Test;
 import junit.framework.TestCase;
 import junit.framework.TestSuite;
 
-import com.secret.store.JdbcConnection;
+import com.secret.common.JdbcConnection;
 import com.secret.model.marketprovider.MarketProviderData;
 
 public class SqlMarketProviderDataStoreTest extends TestCase {
   public SqlMarketProviderDataStoreTest( String testName ) { super( testName ); }
   public static Test suite() { return new TestSuite( SqlMarketProviderDataStoreTest.class ); }
 
-  Connection conn = JdbcConnection.get();
+  Config conf = ConfigFactory.load();
+  Connection conn = JdbcConnection.get(conf);
 
   public void setUp() {
     try {

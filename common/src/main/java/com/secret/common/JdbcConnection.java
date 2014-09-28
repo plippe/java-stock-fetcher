@@ -1,4 +1,4 @@
-package com.secret.store;
+package com.secret.common;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -8,13 +8,11 @@ import com.typesafe.config.ConfigFactory;
 
 public class JdbcConnection {
   private static Connection cache = null;
-  public static Connection get() {
+  public static Connection get(Config conf) {
     if(cache == null) {
       try {      
-        Class.forName("org.postgresql.Driver");
-        
-        final Config conf = ConfigFactory.load();
-        final String connectionString = conf.getString("database.secret.connection");
+        Class.forName("org.postgresql.Driver");        
+        String connectionString = conf.getString("database.secret.connection");
 
         cache = DriverManager.getConnection(connectionString);
       } catch (Exception e) {
