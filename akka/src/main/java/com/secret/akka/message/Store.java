@@ -1,5 +1,6 @@
 package com.secret.akka.message;
 
+import java.util.List;
 import java.io.Serializable;
 
 import com.secret.model.marketprovider.MarketProviderData;
@@ -12,10 +13,10 @@ public class Store {
         }
     }
 
-    public static class GetMarketProviderDataById implements Serializable {
-        public final Integer value;
-        public GetMarketProviderDataById(Integer value) {
-            this.value = value;
+    public static class SaveListMarketProviderData implements Serializable {
+        public final List<MarketProviderData> list;
+        public SaveListMarketProviderData(List<MarketProviderData> list) {
+            this.list = list;
         }
     }
 }
