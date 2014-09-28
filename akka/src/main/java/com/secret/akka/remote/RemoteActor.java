@@ -5,7 +5,7 @@ import akka.actor.ActorRef;
 import com.typesafe.config.Config;
 
 public class RemoteActor {
-  private ActorRef ref;
+  final private ActorRef ref;
       
   public RemoteActor(ActorContext context, String path) {
     ref = context.actorFor(path);

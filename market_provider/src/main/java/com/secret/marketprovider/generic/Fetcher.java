@@ -3,15 +3,12 @@ package com.secret.marketprovider.generic;
 import java.util.List;
 
 abstract public class Fetcher {
-  final private Integer maxSymbolsPerRequest;
+  final public Integer maxSymbolsPerRequest;
   
   protected Fetcher(Integer maxSymbolsPerRequest) {
     this.maxSymbolsPerRequest = maxSymbolsPerRequest;
   }
   
-  public Integer getMaxSymbolsPerRequest() {
-    return maxSymbolsPerRequest;
-  }  
 
-	abstract public String fetch(List<String> symbols) throws Exception;
+  abstract public String fetch(List<String> symbols) throws Exception;
 }

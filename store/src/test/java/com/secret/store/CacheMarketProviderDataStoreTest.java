@@ -22,13 +22,13 @@ public class CacheMarketProviderDataStoreTest extends TestCase {
       store.save(value1);
       Optional<MarketProviderData> found1 = store.findBySymbol(symbol);
       assertTrue(found1.isPresent());
-      assertEquals(found1.get().getValue(), 1.0);
+      assertEquals(found1.get().value, 1.0);
 
       MarketProviderData value2 = new MarketProviderData(symbol, 2.0, new java.util.Date(100, 2, 2, 2, 2));
       store.save(value2);
       Optional<MarketProviderData> found2 = store.findBySymbol(symbol);
       assertTrue(found2.isPresent());
-      assertEquals(found2.get().getValue(), 2.0);
+      assertEquals(found2.get().value, 2.0);
     } catch(Exception e) { fail("Should not raised errors in normal conditions"); }
   }
 }

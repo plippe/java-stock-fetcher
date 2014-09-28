@@ -51,9 +51,9 @@ public class SqlMarketProviderDataStore extends MarketProviderDataStore {
       "VALUES (?, ?, ?);";
 
     PreparedStatement ps = conn.prepareStatement(query);
-    ps.setString(1, value.getSymbol());
-    ps.setDouble(2, value.getValue());
-    ps.setDate(3, DateUtils.toSql(value.getTime()));
+    ps.setString(1, value.symbol);
+    ps.setDouble(2, value.value);
+    ps.setDate(3, DateUtils.toSql(value.time));
 
     ps.execute();
   }

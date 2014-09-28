@@ -16,6 +16,6 @@ public class CacheMarketProviderDataStore extends MarketProviderDataStore {
   }
 
   public void save(MarketProviderData value) throws Exception {
-    cache.put(value.getSymbol(), value);
+    cache.put(value.symbol, value);
   }
 }

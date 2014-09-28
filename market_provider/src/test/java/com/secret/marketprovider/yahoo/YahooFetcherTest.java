@@ -28,7 +28,7 @@ public class YahooFetcherTest extends TestCase {
     YahooFetcher fetcher = new YahooFetcher();
     try {
       List<String> list = new ArrayList();
-      for(Integer i = 0; i < fetcher.getMaxSymbolsPerRequest(); i++) { list.add(i.toString()); }
+      for(Integer i = 0; i < fetcher.maxSymbolsPerRequest; i++) { list.add(i.toString()); }
       list.add("OneToMuch");
       fetcher.fetch(list);
       fail("Should have raised a RequestSizeException");

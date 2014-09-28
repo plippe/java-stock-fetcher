@@ -19,11 +19,11 @@ public class YahooProviderTest extends TestCase {
       List<MarketProviderData> response = yahoo.get(list);
       
       assertEquals("Fetch 5 items should return 5 items", response.size(), list.size());
-      assertEquals("Item 1 symbol must match", response.get(0).getSymbol(), "GOOG");
-      assertEquals("Item 2 symbol must match", response.get(1).getSymbol(), "AAPL");
-      assertEquals("Item 3 symbol must match", response.get(2).getSymbol(), "MSFT");
-      assertEquals("Item 4 symbol must match", response.get(3).getSymbol(), "SNE");
-      assertEquals("Item 5 symbol must match", response.get(4).getSymbol(), "NTDOY");
+      assertEquals("Item 1 symbol must match", response.get(0).symbol, "GOOG");
+      assertEquals("Item 2 symbol must match", response.get(1).symbol, "AAPL");
+      assertEquals("Item 3 symbol must match", response.get(2).symbol, "MSFT");
+      assertEquals("Item 4 symbol must match", response.get(3).symbol, "SNE");
+      assertEquals("Item 5 symbol must match", response.get(4).symbol, "NTDOY");
     } catch(Exception e) {
       fail("Should not raised errors in normal conditions");    
     }
