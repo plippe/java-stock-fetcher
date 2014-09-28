@@ -19,6 +19,10 @@ public class ActorMarketProviderData extends UntypedActor {
 
   final List<MarketProviderDataStore> stores;
 
+  public void preStart() {
+    log.info("preStart");
+  }
+
   public ActorMarketProviderData(Connection conn) {
     stores = Arrays.asList(
       new CacheMarketProviderDataStore(),
@@ -30,8 +34,7 @@ public class ActorMarketProviderData extends UntypedActor {
       try { 
         store.save(save.value); 
       } catch(Exception e) {
-        log.error("Unable to save: {}", save.value);
-        log.error("Error message: {}", e.getMessage());
+        log.error("Exeption thrown: {}", e.getMessage());
       }
     }
   }
