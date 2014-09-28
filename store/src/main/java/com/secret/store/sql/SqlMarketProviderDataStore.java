@@ -24,30 +24,16 @@ public class SqlMarketProviderDataStore extends MarketProviderDataStore {
     return new MarketProviderData(id, symbol, value, time);
   }
 
-  public List<MarketProviderData> all() throws Exception {
-    String query = "" +
-      "SELECT id, symbol, value, time " +
-      "FROM marketproviderdata";
-
-    Statement st = conn.createStatement();
-    ResultSet rs = st.executeQuery(query);
-    List<MarketProviderData> result = new ArrayList(); 
-    while(rs.next()){
-      MarketProviderData value = rowToModel(rs);
-      result.add(value);
-    }
-
-    return result;
-  }
-
-  public Optional<MarketProviderData> findById(Long id) throws Exception {
+  public Optional<MarketProviderData> findBySymbol(String symbol) throws Exception {
     String query = "" +
       "SELECT id, symbol, value, time " +
       "FROM marketproviderdata " +
-      "WHERE id = ?";
+      "WHERE symbol = ? " +
+      "ORDER BY time DESC " +
+      "LIMIT 1";
 
     PreparedStatement ps = conn.prepareStatement(query);
-    ps.setLong(1, id);
+    ps.setString(1, symbol);
 
     ResultSet rs = ps.executeQuery();
     Optional<MarketProviderData> result = Optional.empty();
@@ -59,7 +45,7 @@ public class SqlMarketProviderDataStore extends MarketProviderDataStore {
     return result;
   }
 
-  public PreparedStatement insert(MarketProviderData value) throws SQLException {
+  public void save(MarketProviderData value) throws Exception {
     String query = "" +
       "INSERT INTO marketproviderdata (symbol, value, time) " +
       "VALUES (?, ?, ?);";
@@ -69,26 +55,6 @@ public class SqlMarketProviderDataStore extends MarketProviderDataStore {
     ps.setDouble(2, value.getValue());
     ps.setDate(3, DateUtils.toSql(value.getTime()));
 
-    return ps;
-  }
-
-  public PreparedStatement update(MarketProviderData value) throws SQLException {
-    String query = "" +
-      "UPDATE marketproviderdata " +
-      "SET symbol = ?, value = ?, time = ? " +
-      "WHERE id = ?;";
-
-    PreparedStatement ps = conn.prepareStatement(query);
-    ps.setString(1, value.getSymbol());
-    ps.setDouble(2, value.getValue());
-    ps.setDate(3, DateUtils.toSql(value.getTime()));
-    ps.setLong(4, value.getId().get());
-
-    return ps;
-  }
-
-  public void save(MarketProviderData value) throws Exception {
-    PreparedStatement ps = value.getId().isPresent() ? update(value) : insert(value);
     ps.execute();
   }
 }
