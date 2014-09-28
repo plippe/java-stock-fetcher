@@ -1,8 +1,8 @@
 package com.secret.store.generic;
 
 import java.util.List;
-import java.util.Optional;
 
+import com.secret.common.Optional;
 import com.secret.model.marketprovider.MarketProviderData;
 
 public abstract class MarketProviderDataStore {

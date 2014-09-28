@@ -1,7 +1,6 @@
 package com.secret.store.sql;
 
 import java.sql.*;
-import java.util.Optional;
 import com.typesafe.config.Config;
 import com.typesafe.config.ConfigFactory;
 
@@ -9,6 +8,7 @@ import junit.framework.Test;
 import junit.framework.TestCase;
 import junit.framework.TestSuite;
 
+import com.secret.common.Optional;
 import com.secret.common.JdbcConnection;
 import com.secret.model.marketprovider.MarketProviderData;
 

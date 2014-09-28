@@ -1,9 +1,9 @@
 package com.secret.store.cache;
 
-import java.util.Optional;
 import java.util.Map;
 import java.util.HashMap;
 
+import com.secret.common.Optional;
 import com.secret.store.generic.MarketProviderDataStore;
 import com.secret.model.marketprovider.MarketProviderData;
 

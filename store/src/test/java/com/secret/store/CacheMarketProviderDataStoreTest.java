@@ -1,11 +1,10 @@
 package com.secret.store.cache;
 
-import java.util.Optional;
-
 import junit.framework.Test;
 import junit.framework.TestCase;
 import junit.framework.TestSuite;
 
+import com.secret.common.Optional;
 import com.secret.model.marketprovider.MarketProviderData;
 
 public class CacheMarketProviderDataStoreTest extends TestCase {

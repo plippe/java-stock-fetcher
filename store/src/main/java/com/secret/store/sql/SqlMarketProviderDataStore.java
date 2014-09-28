@@ -3,8 +3,8 @@ package com.secret.store.sql;
 import java.sql.*;
 import java.util.List;
 import java.util.ArrayList;
-import java.util.Optional;
 
+import com.secret.common.Optional;
 import com.secret.common.DateUtils;
 import com.secret.store.generic.MarketProviderDataStore;
 import com.secret.model.marketprovider.MarketProviderData;

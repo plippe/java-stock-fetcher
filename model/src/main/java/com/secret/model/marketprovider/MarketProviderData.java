@@ -2,7 +2,8 @@ package com.secret.model.marketprovider;
 
 import java.io.Serializable;
 import java.util.Date;
-import java.util.Optional;
+
+import com.secret.common.Optional;
 
 public class MarketProviderData implements Serializable {
   private final Optional<Long> id;  
