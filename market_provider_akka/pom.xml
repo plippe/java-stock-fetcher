@@ -4,7 +4,7 @@
   <groupId>com.secret</groupId>
   <artifactId>marketprovider-akka</artifactId>
   <packaging>jar</packaging>
-  <version>1.0-SNAPSHOT</version>
+  <version>1.0</version>
   <name>Market Provider Akka</name>
   <url>http://maven.apache.org</url>
   
@@ -48,22 +48,22 @@
     <dependency>
       <groupId>com.secret</groupId>
       <artifactId>common</artifactId>
-      <version>1.0-SNAPSHOT</version>
+      <version>1.0</version>
     </dependency>
     <dependency>
       <groupId>com.secret</groupId>
       <artifactId>akka</artifactId>
-      <version>1.0-SNAPSHOT</version>
+      <version>1.0</version>
     </dependency>
     <dependency>
       <groupId>com.secret</groupId>
       <artifactId>model</artifactId>
-      <version>1.0-SNAPSHOT</version>
+      <version>1.0</version>
     </dependency>
     <dependency>
       <groupId>com.secret</groupId>
       <artifactId>marketprovider</artifactId>
-      <version>1.0-SNAPSHOT</version>
+      <version>1.0</version>
     </dependency>
   </dependencies>
 </project>
