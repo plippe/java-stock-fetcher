@@ -14,6 +14,6 @@ public class Main {
     final String actorName = conf.getString("my-akka.actors.server.name"); 
     
     final ActorSystem system = ActorSystem.create(systemName);
-    system.actorOf(Props.create(Server.class), actorName);
+    system.actorOf(Props.create(ActorServer.class), actorName);
   }
 }

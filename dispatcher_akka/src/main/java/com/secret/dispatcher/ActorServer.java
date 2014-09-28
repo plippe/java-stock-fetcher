@@ -17,7 +17,7 @@ import com.secret.akka.message.MarketProvider;
 import com.secret.akka.message.Store.SaveMarketProviderData;
 import com.secret.model.marketprovider.MarketProviderData;
 
-public class Server extends UntypedActor {
+public class ActorServer extends UntypedActor {
   final LoggingAdapter log = Logging.getLogger(getContext().system(), this);  
   
   final Config conf = ConfigFactory.load();

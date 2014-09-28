@@ -12,7 +12,7 @@ import com.secret.marketprovider.generic.Provider;
 import com.secret.marketprovider.yahoo.YahooProvider;
 import com.secret.model.marketprovider.MarketProviderData;
 
-public class Server extends UntypedActor {
+public class ActorServer extends UntypedActor {
   final LoggingAdapter log = Logging.getLogger(getContext().system(), this);
   final Provider provider = new YahooProvider();
 
