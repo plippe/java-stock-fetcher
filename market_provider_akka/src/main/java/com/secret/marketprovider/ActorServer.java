@@ -34,8 +34,8 @@ public class ActorServer extends UntypedActor {
   private void onLargeRequest(MarketProvider.Request request, ActorRef sender) {
     List<List<String>> smallerLists = ListUtils.sliding(
       request.list, 
-      provider.getMaxSymbolsPerRequest(), 
-      provider.getMaxSymbolsPerRequest());
+      provider.maxSymbolsPerRequest, 
+      provider.maxSymbolsPerRequest);
       
     for(List<String> list : smallerLists){
       getSelf().tell(new MarketProvider.Request(list), sender);
@@ -43,7 +43,7 @@ public class ActorServer extends UntypedActor {
   }
   
   private void onRequest(MarketProvider.Request request, ActorRef sender) {
-    if(request.list.size() <= provider.getMaxSymbolsPerRequest()) {
+    if(request.list.size() <= provider.maxSymbolsPerRequest) {
       onNormalRequest(request, sender);
     } else {
       onLargeRequest(request, sender);    
