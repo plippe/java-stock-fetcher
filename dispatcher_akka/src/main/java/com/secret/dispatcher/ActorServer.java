@@ -14,7 +14,7 @@ import scala.concurrent.duration.FiniteDuration;
 import com.secret.akka.remote.RemoteActor;
 import com.secret.akka.message.Common.Ping;
 import com.secret.akka.message.MarketProvider;
-import com.secret.akka.message.Store.SaveMarketProviderData;
+import com.secret.akka.message.Store.SaveListMarketProviderData;
 import com.secret.model.marketprovider.MarketProviderData;
 
 public class ActorServer extends UntypedActor {
@@ -27,7 +27,7 @@ public class ActorServer extends UntypedActor {
   final String storePath = conf.getString("my-akka.remote.store");
   final RemoteActor store = new RemoteActor(getContext(), storePath);
   
-  public void preStart() {    
+  public void preStart() {
     log.info("preStart");
     
     final FiniteDuration first = Duration.Zero();
@@ -38,19 +38,13 @@ public class ActorServer extends UntypedActor {
   }
   
   private void onRequestMarketData() {
-    log.info("onRequestMarketData");
-
     final List<String> symbols = conf.getStringList("symbols");
     final MarketProvider.Request request = new MarketProvider.Request(symbols);
     marketProvider.tell(request, getSelf());
   }
   
   private void onMarketProviderResponse(MarketProvider.Response response) {
-    log.info("onMarketProviderResponse");
-
-    for (MarketProviderData value : response.list) {
-      store.tell(new SaveMarketProviderData(value), getSelf());
-    }
+    store.tell(new SaveListMarketProviderData(response.list), getSelf());
   }
 
   public void onReceive(Object message) {    

@@ -16,6 +16,10 @@ public class ActorServer extends UntypedActor {
   final LoggingAdapter log = Logging.getLogger(getContext().system(), this);
   final Provider provider = new YahooProvider();
 
+  public void preStart() {
+    log.info("preStart");
+  }
+  
   private void onNormalRequest(MarketProvider.Request request, ActorRef sender) {    
     try {
       List<MarketProviderData> content = provider.get(request.list);
