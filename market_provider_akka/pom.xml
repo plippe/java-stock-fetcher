@@ -2,7 +2,7 @@
   xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
   <modelVersion>4.0.0</modelVersion>
   <groupId>com.secret</groupId>
-  <artifactId>marketprovider-akka</artifactId>
+  <artifactId>market_provider_akka</artifactId>
   <packaging>jar</packaging>
   <version>1.0</version>
   <name>Market Provider Akka</name>
@@ -62,7 +62,7 @@
     </dependency>
     <dependency>
       <groupId>com.secret</groupId>
-      <artifactId>marketprovider</artifactId>
+      <artifactId>market_provider</artifactId>
       <version>1.0</version>
     </dependency>
   </dependencies>
