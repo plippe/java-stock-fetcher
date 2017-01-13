@@ -37,9 +37,9 @@ class YahooParser extends Parser {
     List<MarketProviderData> result = new ArrayList();
     
     Date time = new Date();
-    for(CSVRecord el: list) {      
-      try { 
-        String symbol = el.get(0);
+    for(CSVRecord el: list) {
+      try {
+        String symbol = el.get(0).toUpperCase();
         Double value = Double.parseDouble(el.get(1));
 
         result.add(new MarketProviderData(symbol, value, time));
